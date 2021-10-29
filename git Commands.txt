@@ -1,0 +1,23 @@
+To Create your Branch from master 
+
+1. git clone https://github.com/DaniManas/Relational-Database-Managment-System.git
+2. cd Relational-Database-Managment-System
+3. git checkout master
+4. git checkout -b feature/<yourname>
+
+
+Make sure git bash shows your branch in blue.
+
+Now Make your changes.
+
+1. Test your changes - After everything is set to be good.
+2. You can push your changes using-
+	
+	1. git add .
+	2. git commit -m "your message"
+	3. git push origin feature/<your name>
+	
+Show your code to Peers if approved raise a PR request to merge your code.
+
+To delete Pyc Files - 
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf

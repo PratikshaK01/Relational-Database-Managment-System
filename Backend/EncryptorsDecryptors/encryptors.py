@@ -1,4 +1,7 @@
 from cryptography.fernet import Fernet
+import sys
+sys.path.append('../propertyFiles')
+from properties import *
 #
 # # we will be encryting the below string.
 message = "hello geeks"
@@ -15,13 +18,13 @@ def encryption(key,mssgToEncrypt):
     #.encode() method will convert normal string into byte string.
     encMessage = fernet.encrypt(mssgToEncrypt.encode())
 
-    return encMessage
+    return encMessage.decode()
 
 def decryption(key,encMessage):
     fernet = Fernet(key)
-    decMessage = fernet.decrypt(encMessage).decode()
-
-    return decMessage
+    decMessage = fernet.decrypt(encMessage)
+# to remove bString
+    return decMessage.decode()
 
 """
 
@@ -31,3 +34,8 @@ def decrypt(encMessage):
 
 def encrypt(messageToEncrypt):
     return encryption(key,messageToEncrypt)
+
+def getEncryptedValue(encryptedArr,decryptedArr):
+    for element in decryptedArr:
+        encryptedArr.append(encrypt(element))
+    return encryptedArr

@@ -1,15 +1,15 @@
 CREATE DATABASE IF NOT EXISTS forms;
 CREATE TABLE IF NOT EXISTS student_info(
 
- Gr_no varchar(11) not null unique primary key,
+Gr_no int(11) not null unique primary key,
 rollNumber	int	not null unique,
-firstName varchar(100),
-surName varchar(100),
+firstName varchar(200),
+surName varchar(200),
 email nvarchar(320) not null unique,
-mobileNumber varchar(100) not null unique,
-aadhar varchar(100) not null unique,
-PAN	varchar(100) unique,
-passport varchar(100) unique,
+mobileNumber varchar(200) not null unique,
+aadhar varchar(200) not null unique,
+PAN	varchar(200) unique,
+passport varchar(200) unique,
 nationality varchar(20),
 isAadhar boolean,
 isPAN boolean,
