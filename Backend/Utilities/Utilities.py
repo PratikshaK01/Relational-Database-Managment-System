@@ -1,7 +1,7 @@
 import random
 import sys
-sys.path.append('../Functions')
-from NameFunc import *
+sys.path.append('../propertyFiles')
+from Names import *
 
 # THIS FUNCTION WILL RETURN FIRSTNAME OF MALE
 # CALL THIS FUNCTION WHEN WE NEED FIRST NAME OF MALE CANDIDATE
@@ -23,5 +23,5 @@ def getSurname():
 # THIS FUNCTION WILL RETURN FIRSTNAME OF RANDOM CANDIDATE
 def getFirstName():
     maleFemaleName=[getMaleName(),getFemaleName()]
-    finalRandomName=random.choice(MaleFemaleName)
+    finalRandomName=random.choice(maleFemaleName)
     return finalRandomName

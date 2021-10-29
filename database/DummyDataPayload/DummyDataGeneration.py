@@ -2,18 +2,22 @@ from dummyDataPayload import *
 import sys
 import random
 sys.path.append('../DatabaseConnection')
-sys.path.append('../propertyFiles')
+sys.path.append('../../Backend/Utilities')
+sys.path.append('../../Backend/propertyFiles')
 from DbConnection import *
 from Utilities import *
+from properties import *
 
 FinalString=""
 
 #Loweround->max(db)->insertion sathi
 #Upperbound->lastvalue->lowerbound+val
-result1=getQuery("SELECT MAX(Gr_no) FROM student_info;")
-# print(type(result1))
-lowerBound=0
-upperBound=2
+maxValue=getQuery(getMaxValue.format(TableName))[0][0]
+if(maxValue==None):
+    lowerBound=0
+else:
+    lowerBound=int(maxValue)+1
+upperBound=lowerBound + rowsToBeInserted
 
 for RowValue in range(lowerBound,upperBound):
     fName=getFirstName()
@@ -25,12 +29,12 @@ for RowValue in range(lowerBound,upperBound):
     arr=[fName,sName,fTName,mTName]
     #we need to add email,personaladdress,
     # PerosonalAddress,aadhar,pan,passport
-    encrypted=getEncryptedValue(arr)
+    # encrypted=getEncryptedValue(arr)
 
-    fName=encrypted[0]
-    sName=encrypted[1]
-    fTName=encrypted[2]
-    mTName=encrypted[3]
+    # fName=encrypted[0]
+    # sName=encrypted[1]
+    # fTName=encrypted[2]
+    # mTName=encrypted[3]
 
     InitialRow="('{}',{},'{}','{}','{}','{}','{}','{}','{}','{}',{},{},{},{},'{}','{}','{}','{}','{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{})"
     InitialRow=InitialRow.format(Gr_no.format(RowValue),

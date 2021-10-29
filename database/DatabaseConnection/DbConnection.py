@@ -1,11 +1,9 @@
 import mysql.connector
 import sys
-sys.path.append('../EncryptorsDecryptors')
-sys.path.append('../propertyFiles')
+sys.path.append('../../Backend/EncryptorsDecryptors')
+sys.path.append('../../Backend/propertyFiles')
 from encryptors import encrypt,decrypt
 from properties import *
-
-
 
 
 getSql = "SELECT Gr_no,rollNumber,firstName,surName,email,mobileNumber FROM student_info LIMIT 10;"
@@ -27,5 +25,4 @@ def getQuery(query):
     mydb.close()
     return result
 # InsertIntoDB(sql)
-result = getQuery(getSql)
 # print(result)

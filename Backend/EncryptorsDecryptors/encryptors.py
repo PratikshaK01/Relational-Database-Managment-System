@@ -22,7 +22,12 @@ def decryption(key,encMessage):
     decMessage = fernet.decrypt(encMessage).decode()
 
     return decMessage
+
+"""
+
+"""
 def decrypt(encMessage):
     return decryption(key,encMessage)
+
 def encrypt(messageToEncrypt):
     return encryption(key,messageToEncrypt)

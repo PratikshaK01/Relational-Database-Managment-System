@@ -10,6 +10,8 @@ pIIColoumn=['FirstName,SurName,FathersName,MothersName,PerosonalAddress,aadhar,p
 
 InsertTemplate = "INSERT INTO {} ({}) VALUES {}"
 
+getMaxValue="SELECT MAX(Gr_no) FROM {};"
 
 
-noOfRecordsTobeInserted=1000
+
+rowsToBeInserted=1000
