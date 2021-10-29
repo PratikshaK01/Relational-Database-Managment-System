@@ -1,0 +1,19 @@
+import smtplib
+from email.message import EmailMessage
+
+msg=EmailMessage()
+msg['Subject']='Major Project'
+msg['From']='Pratiksha'
+msg['To']='pratiksha.kale18@vit.edu, payal.deshmukh18@vit.edu, manas.dani18@vit.edu, pritesh.chaudhari18@vit.edu'
+msg.set_content("Test Email for Major Project")
+
+with open("Demo.xlsx","rb") as f:
+    file_data=f.read()
+    file_name=f.name
+    msg.add_attachment(file_data, maintype="application", subtype="xlsx",filename=file_name)
+
+with smtplib.SMTP_SSL('smtp.gmail.com',465) as server:
+    server.login("no.reply.vittpoproject", "Major@Project1")
+    server.send_message(msg)
+
+print("Email sent!")
